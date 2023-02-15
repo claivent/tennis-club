@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="col align-self-center">
+      <h2 class="text-center m-5">Edit Reservation</h2>
+      <app-table-form
+        [initialState]="table"
+        (formSubmitted)="editTable($event)"
+      >
+      </app-table-form>
+    </div>
+  </div>
+</div>

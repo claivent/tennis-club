@@ -1,0 +1,33 @@
+.container {
+  max-width: 600px;
+}
+h1 {
+  font-family: 'Viga', sans-serif;
+  font-size: 2rem;
+}
+
+table {
+  margin-bottom: 0;
+}
+
+#new-rez-button {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+.page-title {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-left: 0.5rem;
+}
+td {
+  font-family: 'Viga', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+}
+th {
+  text-align: center;
+  vertical-align: middle;
+  font-size: .75rem;
+}
