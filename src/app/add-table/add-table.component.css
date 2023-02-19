@@ -1,5 +1,6 @@
 .container {
-  background-color: aliceblue;
+  background-color: #7bed9f;
+  border-radius: 14px;
   max-width: 400px;
   margin-top: 2rem;
 }
