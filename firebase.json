@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/tennis-club",
+    "public": "dist/client",
     "ignore": [
       "firebase.json",
       "**/.*",

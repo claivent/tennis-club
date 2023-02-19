@@ -1,0 +1,9 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f1f2f6;
+}
+.logo-div {
+  padding-top: 5rem;
+  margin-top: 5rem;
+}

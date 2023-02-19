@@ -11,6 +11,7 @@ import { TableFormComponent } from './table-form/table-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddTableComponent } from './add-table/add-table.component';
 import { EditTableComponent } from './edit-table/edit-table.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { EditTableComponent } from './edit-table/edit-table.component';
     TableFormComponent,
     AddTableComponent,
     EditTableComponent,
+    HomeComponent,
    
   ],
   imports: [
