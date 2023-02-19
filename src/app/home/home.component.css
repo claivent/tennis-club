@@ -1,9 +1,11 @@
 .container {
-  height: 100vh;
-  width: 100vw;
-  background-color: #f1f2f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
 }
-.logo-div {
-  padding-top: 5rem;
-  margin-top: 5rem;
+.logo-container img,
+.logo-container button {
+  margin: 0 auto; /* This will center the logo and button elements horizontally */
+  display: block; /* This will remove any default inline styling that may cause alignment issues */
 }
