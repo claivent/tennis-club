@@ -2,10 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; 
+  height: 100vh;
 }
-.logo-container img,
-.logo-container button {
-  margin: 0 auto; /* This will center the logo and button elements horizontally */
-  display: block; /* This will remove any default inline styling that may cause alignment issues */
+.form-container {
+  margin-top: -4rem;
+  padding: 3rem;
+  background-color: #dfe6e9;
+  border-radius: 14px;
 }

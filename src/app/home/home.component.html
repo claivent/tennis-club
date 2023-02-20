@@ -1,7 +1,16 @@
 <div class="container">
-  <div class="logo-container">
-    <img src="assets/logo.png" alt="Club Lob" height="200" />
-   
+  <div class="form-container">
+    <div class="logo-div text-center mt-5">
+      <a
+        ><img
+          src="assets/logo2.png"
+          [routerLink]="['/home']"
+          alt="Club Lob"
+          height="200"
+      /></a>
+    </div>
+    <div class="button-div text-center">
     <button type="button" [routerLink]="['/tables/new']" class="btn btn-outline-success btn-lg mt-5">Reserve Court</button>
+  </div>
   </div>
 </div>
