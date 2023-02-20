@@ -77,17 +77,7 @@ export class TableFormComponent implements OnInit {
       });
     }
   }
-
-
-  // deleteTable(): void {
-  //   const id = this.route.snapshot.paramMap.get('id');
-  //   if (id) {
-  //     this.tableService.deleteTable(id).subscribe({
-  //       next: () => this.fetchTables(),
-  //     });
-  //   }
-  // }
-
+  
   fetchTables(): void {
     const id = this.route.snapshot.paramMap.get('id') ?? '';
     this.tableService.getTable(id).subscribe((table) => (this.table = table));

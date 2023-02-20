@@ -42,29 +42,11 @@ export class EditTableComponent implements OnInit {
       },
     });
   }
-
-  // deleteTable(id: string): void {
-  //   this.tableService.deleteTable(id).subscribe({
-  //     next: () => {
-  //       this.fetchTables();
-  //       this.router.navigate(['/tables']);
-  //     },
-  //     error: (error) => {
-  //       alert('Failed to delete table');
-  //       console.error(error);
-  //     },
-  //   });
-  // }
-
   editTable(table: Table) {
     this.tableService.updateTable(this.table.value._id || '', table).subscribe({
       next: () => {
         this.router.navigate(['/tables']);
       },
-      // error: (error) => {
-      //   alert('Failed to update table');
-      //   console.error(error);
-      // },
     });
   }
   private fetchTables(): void {
