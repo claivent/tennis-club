@@ -18,12 +18,6 @@ export class TableListComponent implements OnInit {
     this.fetchTables();
   }
   
-  deleteTable(id: string): void {
-    this.tablesService.deleteTable(id).subscribe({
-      next: () => this.fetchTables()
-    });
-  }
-  
   private fetchTables(): void {
     this.tables$ = this.tablesService.getTables();
   }

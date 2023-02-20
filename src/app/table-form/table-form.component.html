@@ -44,7 +44,6 @@
     <div *ngIf="party.errors?.['required']">Party size is required.</div>
     <div *ngIf="party.errors?.['maxlength']">Party size must be 4 or 2.</div>
   </div>
-  <!-- --------------------------------- -->
   <table class="table">
     <tbody>
       <tr class="text-center">
@@ -135,11 +134,17 @@
   </table>
   <div class="button-footer text-center mb-5">
     <button
-      class="submit-button btn btn-outline-primary me-2"
+      class="btn btn-outline-primary me-2"
       type="submit"
       [disabled]="tableForm.invalid"
     >
       Submit
+    </button>
+    <button
+      class="btn btn-outline-danger me-2"
+      (click)="deleteTable()"
+    >
+      Delete
     </button>
     <a class="btn btn-outline-primary" href="/tables" role="button">Back</a>
   </div>

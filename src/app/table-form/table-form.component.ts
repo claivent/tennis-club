@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { TableService } from '../table.service';
 import { Table } from '../table';
+ 
 
 @Component({
   selector: 'app-table-form',
@@ -9,6 +12,10 @@ import { Table } from '../table';
   styleUrls: ['./table-form.component.html'],
 })
 export class TableFormComponent implements OnInit {
+  tables$: Observable<Table[]> = new Observable();
+
+  table: any = {};
+
   @Input()
   initialState: BehaviorSubject<Table> = new BehaviorSubject({});
 
@@ -18,9 +25,17 @@ export class TableFormComponent implements OnInit {
   @Output()
   formSubmitted = new EventEmitter<Table>();
 
+  @Output()
+  tableDeleted = new EventEmitter<void>();
+
   tableForm: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private tableService: TableService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   get name() {
     return this.tableForm.get('name')!;
@@ -30,6 +45,9 @@ export class TableFormComponent implements OnInit {
   }
   get time() {
     return this.tableForm.get('time')!;
+  }
+  get id() {
+    return this.tableForm.get('_id')!;
   }
 
   ngOnInit() {
@@ -44,9 +62,40 @@ export class TableFormComponent implements OnInit {
     this.tableForm.valueChanges.subscribe((val) => {
       this.formValuesChanged.emit(val);
     });
+
+    this.fetchTables();
+  }
+
+  deleteTable(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.tableService.deleteTable(id).subscribe({
+        next: () => {
+          this.tableDeleted.emit();
+          this.router.navigate(['/tables']);
+        },
+      });
+    }
+  }
+
+
+  // deleteTable(): void {
+  //   const id = this.route.snapshot.paramMap.get('id');
+  //   if (id) {
+  //     this.tableService.deleteTable(id).subscribe({
+  //       next: () => this.fetchTables(),
+  //     });
+  //   }
+  // }
+
+  fetchTables(): void {
+    const id = this.route.snapshot.paramMap.get('id') ?? '';
+    this.tableService.getTable(id).subscribe((table) => (this.table = table));
   }
 
   submitForm() {
-    this.formSubmitted.emit(this.tableForm.value);
+    const formValue = this.tableForm.value;
+    this.table = { ...formValue, _id: formValue._id };
+    this.formSubmitted.emit(formValue);
   }
 }

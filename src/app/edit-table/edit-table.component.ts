@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Table } from '../table';
 import { TableService } from '../table.service';
 
@@ -10,6 +10,7 @@ import { TableService } from '../table.service';
   styleUrls: ['./edit-table.component.css'],
 })
 export class EditTableComponent implements OnInit {
+  tables$: Observable<Table[]> = new Observable();
   table: BehaviorSubject<Table> = new BehaviorSubject({});
 
   constructor(
@@ -29,15 +30,45 @@ export class EditTableComponent implements OnInit {
     });
   }
 
+  deleteTable(id: string): void {
+    this.tableService.deleteTable(id).subscribe({
+      next: () => {
+        this.fetchTables();
+        this.router.navigate(['/tables']);
+      },
+      error: (error) => {
+        alert('Failed to delete table');
+        console.error(error);
+      },
+    });
+  }
+
+  // deleteTable(id: string): void {
+  //   this.tableService.deleteTable(id).subscribe({
+  //     next: () => {
+  //       this.fetchTables();
+  //       this.router.navigate(['/tables']);
+  //     },
+  //     error: (error) => {
+  //       alert('Failed to delete table');
+  //       console.error(error);
+  //     },
+  //   });
+  // }
+
   editTable(table: Table) {
     this.tableService.updateTable(this.table.value._id || '', table).subscribe({
       next: () => {
         this.router.navigate(['/tables']);
       },
-      error: (error) => {
-        alert('Failed to update table');
-        console.error(error);
-      },
+      // error: (error) => {
+      //   alert('Failed to update table');
+      //   console.error(error);
+      // },
     });
+  }
+  private fetchTables(): void {
+    this.tables$ = this.tableService.getTables();
+    this.router.navigate(['/tables']);
   }
 }
