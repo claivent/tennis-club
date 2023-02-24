@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <table
+    class="green-tiger-table"
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      (matSortChange)="sortTable($event)"
+    >
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let table">{{ table.name }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="party">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Players</th>
+        <td mat-cell *matCellDef="let table">{{ table.party }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Start</th>
+        <td mat-cell *matCellDef="let table">{{ table.time }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>Edit</th>
+        <td mat-cell *matCellDef="let table">
+          <button
+            class="btn btn-outline-primary btn-sm"
+            [routerLink]="['edit/', table._id]"
+          >
+            Edit
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  
+
+<!-- <<----------------------------------------------------------------------COPY -->
+<!-- <div class="container-fluid">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef class="table-cell">Name</th>
+        <td mat-cell *matCellDef="let table" class="table-cell">{{ table.name }}</td>
+      </ng-container>
+      <ng-container matColumnDef="party">
+        <th mat-header-cell *matHeaderCellDef class="table-cell">Players</th>
+        <td mat-cell *matCellDef="let table" class="table-cell">{{ table.party }}</td>
+      </ng-container>
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef class="table-cell">Start</th>
+        <td mat-cell *matCellDef="let table" class="table-cell">{{ table.time }}</td>
+      </ng-container>
+      <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef class="table-cell">Edit</th>
+        <td mat-cell *matCellDef="let table" class="table-cell">
+          <button
+            class="btn btn-outline-primary btn-sm"
+            [routerLink]="['edit/', table._id]"
+          >
+            Edit
+          </button>
+        </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    </div> -->

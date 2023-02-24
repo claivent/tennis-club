@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +11,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddTableComponent } from './add-table/add-table.component';
 import { EditTableComponent } from './edit-table/edit-table.component';
 import { HomeComponent } from './home/home.component';
-
+import { TableComponent } from './table/table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HomeComponent } from './home/home.component';
     AddTableComponent,
     EditTableComponent,
     HomeComponent,
+    TableComponent,
    
   ],
   imports: [
@@ -31,6 +33,8 @@ import { HomeComponent } from './home/home.component';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent],
