@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TableListComponent } from './table-list/table-list.component';
 import { TableFormComponent } from './table-form/table-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddTableComponent } from './add-table/add-table.component';
@@ -18,13 +17,11 @@ import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
-    TableListComponent,
     TableFormComponent,
     AddTableComponent,
     EditTableComponent,
     HomeComponent,
     TableComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -34,7 +31,7 @@ import { MatSortModule } from '@angular/material/sort';
     HttpClientModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

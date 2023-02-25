@@ -1,37 +1,40 @@
 .container-fluid {
   max-width: 600px;
+}
+.green-tiger-table {
+  width: 100%;
+}
+::ng-deep .mat-sort-header-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
-
-.green-tiger-table{
-    width: 100%;
+h2 {
+  font-size: 1.5rem;
+  text-decoration: underline;
 }
-
-.green-tiger-table td {
-
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
+.page-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
 }
-
+th {
+  font-size: 0.75rem;
+  color: #2c3e50;
+  vertical-align: bottom;
+}
+td {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+}
 .green-tiger-table tr:nth-child(even) {
-  background-color: #7bed9f;
+  background-color: #f1f2f6;
 }
-
 .green-tiger-table tr:nth-child(odd) {
   background-color: #ffffff;
 }
-.mat-cell {
-  font-family: "Roboto Mono", monospace;
-  font-size: 1rem;
-  text-align: left;
-}
-th {
-  text-align: center;
-  vertical-align: bottom;
-  font-size: 0.75rem;
-  font-weight: bolder;
-  color: #2f3542;
+#new-rez-button {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }

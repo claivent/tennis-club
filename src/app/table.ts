@@ -1,6 +1,7 @@
 export interface Table {
   _id?: string;
-  name?: string;
-  party?: string;
-  time?: string;
+  name: string;
+  party: string;
+  time: string;
+  [key: string]: any;
 }

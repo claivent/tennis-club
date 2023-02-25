@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TableListComponent } from './table-list/table-list.component';
 import { AddTableComponent } from './add-table/add-table.component';
 import { EditTableComponent } from './edit-table/edit-table.component';
 import { HomeComponent } from './home/home.component';
@@ -8,10 +7,8 @@ import { TableComponent } from './table/table.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'x', component: TableComponent },
-  { path: 'x/edit/:id', component: EditTableComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'tables', component: TableListComponent },
+  { path: 'tables', component: TableComponent },
   { path: 'tables/new', component: AddTableComponent },
   { path: 'tables/edit/:id', component: EditTableComponent },
 ];

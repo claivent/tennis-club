@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { TableService } from '../table.service';
 import { Table } from '../table';
- 
 
 @Component({
   selector: 'app-table-form',
@@ -14,10 +13,20 @@ import { Table } from '../table';
 export class TableFormComponent implements OnInit {
   tables$: Observable<Table[]> = new Observable();
 
-  table: any = {};
+  table: BehaviorSubject<Table> = new BehaviorSubject<Table>({
+    _id: '',
+    name: '',
+    party: '',
+    time: '',
+  });
 
   @Input()
-  initialState: BehaviorSubject<Table> = new BehaviorSubject({});
+  initialState: BehaviorSubject<Table> = new BehaviorSubject<Table>({
+    _id: '',
+    name: '',
+    party: '',
+    time: '',
+  });
 
   @Output()
   formValuesChanged = new EventEmitter<Table>();
@@ -77,11 +86,14 @@ export class TableFormComponent implements OnInit {
       });
     }
   }
-  
+
   fetchTables(): void {
     const id = this.route.snapshot.paramMap.get('id') ?? '';
-    this.tableService.getTable(id).subscribe((table) => (this.table = table));
+    this.tableService.getTable(id).subscribe((table) => {
+      this.table.next(table);
+    });
   }
+  
 
   submitForm() {
     const formValue = this.tableForm.value;

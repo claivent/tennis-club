@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Table } from '../table';
 import { TableService } from '../table.service';
 import { MatSort, Sort } from '@angular/material/sort';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -11,6 +13,14 @@ import { MatSort, Sort } from '@angular/material/sort';
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
+
+  table: BehaviorSubject<Table> = new BehaviorSubject<Table>({
+    _id: '',
+    name: '',
+    party: '',
+    time: '',
+  });
+  
   tables$: Observable<Table[]> = new Observable();
 
   dataSource: MatTableDataSource<Table> = new MatTableDataSource<Table>([]);
@@ -29,8 +39,21 @@ export class TableComponent implements OnInit {
   }
 
   sortTable(sort: Sort): void {
-    this.dataSource.data;
-  }
+    const data = this.dataSource.data.slice();
+
+    if (!sort.active || sort.direction === '') {
+      this.dataSource.data = data;
+      return;
+    }
+
+  const isAsc = sort.direction === 'asc';
+  
+  data.sort((a, b) => {
+    const valueA = a[sort.active];
+    const valueB = b[sort.active];
+    return (valueA < valueB ? -1 : 1) * (isAsc ? 1 : -1);
+  });
+}
 
   private fetchTables(): void {
     this.tables$ = this.tablesService.getTables();

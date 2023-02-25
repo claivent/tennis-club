@@ -11,7 +11,13 @@ import { TableService } from '../table.service';
 })
 export class EditTableComponent implements OnInit {
   tables$: Observable<Table[]> = new Observable();
-  table: BehaviorSubject<Table> = new BehaviorSubject({});
+
+  table: BehaviorSubject<Table> = new BehaviorSubject<Table>({
+    _id: '',
+    name: '',
+    party: '',
+    time: '',
+  });
 
   constructor(
     private router: Router,
