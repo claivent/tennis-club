@@ -25,7 +25,7 @@ export class TableComponent implements OnInit {
 
   dataSource: MatTableDataSource<Table> = new MatTableDataSource<Table>([]);
 
-  displayedColumns: string[] = ['name', 'party', 'time', 'edit'];
+  displayedColumns: string[] = ['name', 'party', 'time'];
 
   @ViewChild(MatSort) sort: MatSort = new MatSort();
 
