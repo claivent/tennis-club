@@ -58,4 +58,16 @@ export class TableComponent implements OnInit {
   private fetchTables(): void {
     this.tables$ = this.tablesService.getTables();
   }
+  getDate(): string {
+    const date = new Date();
+    if (date.getHours() >= 14) {
+      date.setDate(date.getDate() + 1);
+    }
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  }
 }

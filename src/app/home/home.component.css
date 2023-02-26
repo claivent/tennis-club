@@ -10,7 +10,7 @@
   background-color: #dfe6e9;
   border-radius: 14px;
 }
-ngb-alert{
+ngb-alert {
   margin-top: 2rem;
-  max-width: 250px;
+  padding: rem;
 }

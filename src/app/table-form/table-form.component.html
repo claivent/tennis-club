@@ -28,7 +28,7 @@
 
   <div class="form-floating mb-3">
     <div ngbDropdown [formGroup]="tableForm" class="w-100">
-      <button class="btn btn-outline-primary dropdown-toggle w-100" id="partyDropdown" ngbDropdownToggle type="button">
+      <button class="btn btn-outline-success dropdown-toggle w-100" id="partyDropdown" ngbDropdownToggle type="button">
         {{ tableForm.get('party')?.value === 2 ? 'Singles' : (tableForm.get('party')?.value === 4 ? 'Doubles' : 'Select Match') }}
       </button>
       <div ngbDropdownMenu aria-labelledby="partyDropdown">
@@ -44,7 +44,7 @@
   <div class="form-floating mb-3">
     <div ngbDropdown [formGroup]="tableForm">
       <button
-        class="btn btn-outline-primary dropdown-toggle w-100"
+        class="btn btn-outline-success dropdown-toggle w-100"
         id="timeDropdown"
         ngbDropdownToggle
         type="button"
