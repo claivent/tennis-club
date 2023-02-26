@@ -1,22 +1,21 @@
+
 <div class="container">
+  <p>
+    <ngb-alert [dismissible]="true">
+    Accepting reservations for <strong>{{ getDate() }}</strong>.
+    </ngb-alert>
+  </p>
   <div class="form-container">
     <div class="logo-div text-center mt-5">
-      <a
-        ><img
-          src="assets/logo2.png"
-          [routerLink]="['/home']"
-          alt="Club Lob"
-          height="200"
-      /></a>
+      <a><img src="assets/logo2.png" [routerLink]="['/home']" alt="Club Lob" height="200" /></a>
     </div>
     <div class="button-div text-center">
-      <button
-        type="button"
-        [routerLink]="['/tables']"
-        class="btn btn-outline-success btn-lg mt-5"
-      >
+      <button type="button" [routerLink]="['/tables']" class="btn btn-outline-success btn-lg mt-5">
         Reserve Court
       </button>
+      
     </div>
+
   </div>
+  
 </div>

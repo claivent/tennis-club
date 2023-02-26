@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { MatSortModule } from '@angular/material/sort';
     ReactiveFormsModule,
     MatTableModule,
     MatSortModule,
+    NgbDropdownModule,
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -6,3 +6,13 @@
 h2 {
   margin: 10px;
 }
+.input-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-field input {
+  margin-top: 10px;  
+}

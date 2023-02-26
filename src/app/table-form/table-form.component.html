@@ -13,7 +13,7 @@
       placeholder="Name"
       required
     />
-    <label for="name">Name</label>
+    <label for="name">Member</label>
   </div>
 
   <div
@@ -27,125 +27,103 @@
   </div>
 
   <div class="form-floating mb-3">
-    <input
-      class="form-control"
-      type="text"
-      formControlName="party"
-      placeholder="party"
-      required
-    />
-    <label for="party">Party Size</label>
+    <div ngbDropdown [formGroup]="tableForm" class="w-100">
+      <button class="btn btn-outline-primary dropdown-toggle w-100" id="partyDropdown" ngbDropdownToggle type="button">
+        {{ tableForm.get('party')?.value === 2 ? 'Singles' : (tableForm.get('party')?.value === 4 ? 'Doubles' : 'Select Match') }}
+      </button>
+      <div ngbDropdownMenu aria-labelledby="partyDropdown">
+        <button class="dropdown-item" type="button" (click)="tableForm.patchValue({ party: 2 })">Singles</button>
+        <button class="dropdown-item" type="button" (click)="tableForm.patchValue({ party: 4 })">Doubles</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="party.invalid && (party.dirty || party.touched)" class="alert alert-danger">
+    <div *ngIf="party.errors?.['required']">Match type is required.</div>
   </div>
 
-  <div
-    *ngIf="party.invalid && (party.dirty || party.touched)"
-    class="alert alert-danger"
-  >
-    <div *ngIf="party.errors?.['required']">Party size is required.</div>
-    <div *ngIf="party.errors?.['maxlength']">Party size must be 4 or 2.</div>
+  <div class="form-floating mb-3">
+    <div ngbDropdown [formGroup]="tableForm">
+      <button
+        class="btn btn-outline-primary dropdown-toggle w-100"
+        id="timeDropdown"
+        ngbDropdownToggle
+        type="button"
+      >
+        {{ tableForm.get('time')?.value || 'Start Time' }}
+      </button>
+      <div ngbDropdownMenu aria-labelledby="timeDropdown">
+        <button
+          class="dropdown-item"
+          type="button"
+          [disabled]="tableForm.get('time')?.value === '06:00'"
+          (click)="tableForm.patchValue({ time: '06:00' })"
+        >
+          06:00AM
+        </button>
+        <button
+          class="dropdown-item"
+          type="button"
+          [disabled]="tableForm.get('time')?.value === '08:00'"
+          (click)="tableForm.patchValue({ time: '08:00' })"
+        >
+          08:00AM
+        </button>
+        <button
+          class="dropdown-item"
+          type="button"
+          [disabled]="tableForm.get('time')?.value === '10:00'"
+          (click)="tableForm.patchValue({ time: '10:00' })"
+        >
+          10:00AM
+        </button>
+        <button
+          class="dropdown-item"
+          type="button"
+          [disabled]="tableForm.get('time')?.value === '12:00'"
+          (click)="tableForm.patchValue({ time: '12:00' })"
+        >
+          12:00PM
+        </button>
+        <button
+          class="dropdown-item"
+          type="button"
+          [disabled]="tableForm.get('time')?.value === '14:00'"
+          (click)="tableForm.patchValue({ time: '14:00' })"
+        >
+          02:00PM
+        </button>
+        <button
+          class="dropdown-item"
+          type="button"
+          [disabled]="tableForm.get('time')?.value === '16:00'"
+          (click)="tableForm.patchValue({ time: '16:00' })"
+        >
+          04:00PM
+        </button>
+      </div>
+    </div>
   </div>
-  <table class="table">
-    <tbody>
-      <tr class="text-center">
-        <td>
-          <div class="form-check d-flex justify-content-end">
-            <input
-              class="form-check-input"
-              type="radio"
-              formControlName="time"
-              id="06:00"
-              value="06:00"
-              required
-            />
-            <label class="form-check-label ms-2" for="06:00">06:00AM</label>
-          </div>
-        </td>
-        <td>
-          <div class="form-check d-flex justify-content-start">
-            <input
-              class="form-check-input"
-              type="radio"
-              formControlName="time"
-              id="08:00"
-              value="08:00"
-              required
-            />
-            <label class="form-check-label ms-2" for="08:00">08:00AM</label>
-          </div>
-        </td>
-      </tr>
-      <tr class="text-center">
-        <td>
-          <div class="form-check d-flex justify-content-end">
-            <input
-              class="form-check-input"
-              type="radio"
-              formControlName="time"
-              id="10:00"
-              value="10:00"
-              required
-            />
-            <label class="form-check-label ms-2" for="10:00">10:00AM</label>
-          </div>
-        </td>
-        <td>
-          <div class="form-check d-flex justify-content-start">
-            <input
-              class="form-check-input"
-              type="radio"
-              formControlName="time"
-              id="12:00"
-              value="12:00"
-              required
-            />
-            <label class="form-check-label ms-2" for="12:00">12:00PM</label>
-          </div>
-        </td>
-      </tr>
-      <tr class="text-center">
-        <td>
-          <div class="form-check d-flex justify-content-end">
-            <input
-              class="form-check-input"
-              type="radio"
-              formControlName="time"
-              id="14:00"
-              value="14:00"
-              required
-            />
-            <label class="form-check-label ms-2" for="14:00">02:00PM</label>
-          </div>
-        </td>
-        <td>
-          <div class="form-check d-flex justify-content-start">
-            <input
-              class="form-check-input"
-              type="radio"
-              formControlName="time"
-              id="16:00"
-              value="16:00"
-              required
-            />
-            <label class="form-check-label ms-2" for="16:00">04:00PM</label>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
   <div class="button-footer text-center mb-5">
     <button
-      class="btn btn-outline-success me-2"
+      class="btn btn-success me-2 w-100"
       type="submit"
       [disabled]="tableForm.invalid"
     >
       Submit
     </button>
-    <button
+    
+    
+  </div>
+</form>
+
+
+    <div class="button-footer text-center mb-5">
+      <button
       class="btn btn-outline-danger me-2"
       (click)="deleteTable()"
     >
       Delete
     </button>
-    <a class="btn btn-outline-success" href="/tables" role="button">Back</a>
-  </div>
-</form>
+      
+      <a class="btn btn-outline-success" href="/tables" role="button">Go Back</a>
+    </div>    

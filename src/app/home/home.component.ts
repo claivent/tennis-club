@@ -9,6 +9,19 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  getDate(): string {
+    const date = new Date();
+    if (date.getHours() >= 19) {
+      date.setDate(date.getDate() + 1);
+    }
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  }
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {

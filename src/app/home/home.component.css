@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -9,4 +10,8 @@
   padding: 3rem;
   background-color: #dfe6e9;
   border-radius: 14px;
+}
+ngb-alert{
+  margin-top: 2rem;
+  max-width: 250px;
 }
