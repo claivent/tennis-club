@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   getDate(): string {
     const date = new Date();
-    if (date.getHours() >= 19) {
+    if (date.getHours() >= 14) {
       date.setDate(date.getDate() + 1);
     }
     return date.toLocaleDateString('en-US', {
