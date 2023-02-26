@@ -5,9 +5,10 @@
   height: 100vh;
 }
 .form-container {
-  margin-top: -4rem;
   background-color: #dfe6e9;
   border-radius: 14px;
+  max-width: 500px;
+  width: 100vw;
 }
 h2 {
   font-size: 1.5rem;
