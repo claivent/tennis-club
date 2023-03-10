@@ -13,7 +13,7 @@
       placeholder="Name"
       required
     />
-    <label class="text-center" for="name">Name</label>
+    <label class="text-center" for="name">Your Name</label>
   </div>
 
   <div
@@ -29,7 +29,7 @@
   <div class="form-floating mb-3">
     <div ngbDropdown [formGroup]="tableForm" class="w-100">
       <button class="btn btn-outline-success dropdown-toggle w-100" id="partyDropdown" ngbDropdownToggle type="button">
-        {{ tableForm.get('party')?.value === 2 ? 'Singles' : (tableForm.get('party')?.value === 4 ? 'Doubles' : 'Select Match') }}
+        {{ tableForm.get('party')?.value === 2 ? 'Singles' : (tableForm.get('party')?.value === 4 ? 'Doubles' : 'Select Match Type') }}
       </button>
       <div ngbDropdownMenu aria-labelledby="partyDropdown">
         <button class="dropdown-item" type="button" (click)="tableForm.patchValue({ party: 2 })">Singles</button>
@@ -49,7 +49,7 @@
         ngbDropdownToggle
         type="button"
       >
-        {{ tableForm.get('time')?.value || 'Start Time' }}
+        {{ tableForm.get('time')?.value || 'Select Start Time' }}
       </button>
       <div ngbDropdownMenu aria-labelledby="timeDropdown">
         <button
@@ -122,8 +122,8 @@
       class="btn btn-outline-danger me-2"
       (click)="deleteTable()"
     >
-      Delete
+      Cancel Reservation
     </button>
       
-      <a class="btn btn-outline-success" href="/tables" role="button">Go Back</a>
+      <a class="btn btn-outline-success" href="/tables" role="button">View Reservation List</a>
     </div>    

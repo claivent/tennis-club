@@ -9,13 +9,11 @@
           height="100"
       /></a>
     </div>
-
     <p class="text-center mt-3">
       <ngb-alert [dismissible]="false">
-      New Reservation<br><strong>{{ getDate() }}</strong>
+      Reserve Court for:<br><strong>{{ getDate() }}</strong>
       </ngb-alert>
     </p>
-
     <app-table-form (formSubmitted)="addTable($event)"></app-table-form>
   </div>
 </div>
