@@ -1,5 +1,5 @@
 <form
-  class="table-form px-5"
+  class="table-form"
   autocomplete="off"
   [formGroup]="tableForm"
   (ngSubmit)="submitForm()"
@@ -13,7 +13,7 @@
       placeholder="Name"
       required
     />
-    <label class="text-center" for="name">Your Name</label>
+    <label class="name-label text-center" for="name">Your Name</label>
   </div>
 
   <div
@@ -28,16 +28,42 @@
 
   <div class="form-floating mb-3">
     <div ngbDropdown [formGroup]="tableForm" class="w-100">
-      <button class="btn btn-outline-success dropdown-toggle w-100" id="partyDropdown" ngbDropdownToggle type="button">
-        {{ tableForm.get('party')?.value === 2 ? 'Singles' : (tableForm.get('party')?.value === 4 ? 'Doubles' : 'Select Match Type') }}
+      <button
+        class="btn btn-outline-success dropdown-toggle w-100"
+        id="partyDropdown"
+        ngbDropdownToggle
+        type="button"
+      >
+        {{
+          tableForm.get("party")?.value === 2
+            ? "Singles"
+            : tableForm.get("party")?.value === 4
+            ? "Doubles"
+            : "Select Match Type"
+        }}
       </button>
       <div ngbDropdownMenu aria-labelledby="partyDropdown">
-        <button class="dropdown-item" type="button" (click)="tableForm.patchValue({ party: 2 })">Singles</button>
-        <button class="dropdown-item" type="button" (click)="tableForm.patchValue({ party: 4 })">Doubles</button>
+        <button
+          class="dropdown-item"
+          type="button"
+          (click)="tableForm.patchValue({ party: 2 })"
+        >
+          Singles
+        </button>
+        <button
+          class="dropdown-item"
+          type="button"
+          (click)="tableForm.patchValue({ party: 4 })"
+        >
+          Doubles
+        </button>
       </div>
     </div>
   </div>
-  <div *ngIf="party.invalid && (party.dirty || party.touched)" class="alert alert-danger">
+  <div
+    *ngIf="party.invalid && (party.dirty || party.touched)"
+    class="alert alert-danger"
+  >
     <div *ngIf="party.errors?.['required']">Match type is required.</div>
   </div>
 
@@ -49,7 +75,7 @@
         ngbDropdownToggle
         type="button"
       >
-        {{ tableForm.get('time')?.value || 'Select Start Time' }}
+        {{ tableForm.get("time")?.value || "Select Start Time" }}
       </button>
       <div ngbDropdownMenu aria-labelledby="timeDropdown">
         <button
@@ -111,19 +137,15 @@
     >
       Submit
     </button>
-    
-    
   </div>
 </form>
-
-
-    <div class="button-footer text-center mb-5">
-      <button
-      class="btn btn-outline-danger me-2"
-      (click)="deleteTable()"
-    >
-      Cancel Reservation
-    </button>
-      
-      <a class="btn btn-outline-success" href="/tables" role="button">View Reservation List</a>
-    </div>    
+<div class="button-footer text-center mb-3">
+  <a class="btn btn-outline-success" href="/tables" role="button"
+    >View Reservations</a
+  >
+</div>
+<div class="button-footer text-center mb-5">
+  <button class="btn btn-outline-danger me-2" (click)="deleteTable()">
+    Cancel
+  </button>
+</div>

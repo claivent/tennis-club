@@ -7,7 +7,8 @@
 .form-container {
   background-color: #dfe6e9;
   border-radius: 14px;
-  max-width: 500px;
+  max-width: 450px;
+  padding: 1rem;
   width: 100vw;
 }
 h2 {
@@ -18,7 +19,7 @@ h2 {
 h3 {
   margin-top: -1rem;
 }
-.text-center {
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
+.message-bar {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+} 

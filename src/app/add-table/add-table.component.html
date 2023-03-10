@@ -9,7 +9,7 @@
           height="100"
       /></a>
     </div>
-    <p class="text-center mt-3">
+    <p class="message-bar text-center">
       <ngb-alert [dismissible]="false">
       Reserve Court for:<br><strong>{{ getDate() }}</strong>
       </ngb-alert>
@@ -17,3 +17,4 @@
     <app-table-form (formSubmitted)="addTable($event)"></app-table-form>
   </div>
 </div>
+
