@@ -1,5 +1,39 @@
-.container-fluid {
-  max-width: 600px;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 100vh;
+  max-width: 850px;
+}
+.row {
+  border-radius: 14px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 767px) {
+  .row {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .col-md-6 {
+    width: 100%;
+  }
+}
+.form-holder,
+.image-holder {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.message-bar {
+  background-color: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+  border-radius: 14px;
+}
+.message-footer {
+  margin-top: 1rem;
+}
+.message-header {
+  margin-bottom: -2rem;
 }
 .green-tiger-table {
   width: 100%;
@@ -8,12 +42,7 @@
   display: flex;
   justify-content: center;
 }
-h2 {
-  font-size: 1.5rem;
-}
-.page-title {
-  margin-bottom: -.5rem;
-}
+
 .mat-row a {
   text-decoration: none;
 }
@@ -34,7 +63,10 @@ td {
 .green-tiger-table tr:nth-child(odd) {
   background-color: #ffffff;
 }
-#new-rez-button {
-  margin-bottom: 1rem;
-  margin-top: 2rem;
+#new-rez-btn {
+  margin-right: 1rem;
+}
+.page-title {
+  margin-bottom: -.1rem;
+  
 }

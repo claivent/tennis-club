@@ -1,19 +1,43 @@
 <div class="container">
-  <div class="form-container">
-    <div class="logo-div text-center mt-5">
-      <a
-        ><img
-          src="assets/logo2.png"
-          [routerLink]="['/home']"
-          alt="Club Lob"
-          height="100"
-      /></a>
+  <div class="row">
+    <div class="image-holder col-md-6 text-center p-5">
+      <img src="assets/player2.png" class="img-fluid" alt="Responsive image" />
     </div>
-    <h2 class="text-center m-3">Edit Reservation</h2>
-    <app-table-form
+
+    <div class="form-holder col-md-6 text-center p-5">
+      <p class="message-bar1 text-center">
+        <ngb-alert class="message-bar" [dismissible]="false">
+          <h2 class="message-header text-center">Edit Reservation</h2>
+        </ngb-alert>
+      </p>
+      <div class="form-container text-center">
+        <app-table-form
         [initialState]="table"
         (formSubmitted)="editTable($event)"
-      >
-      </app-table-form>
+        [showDeleteButton]="true"
+      ></app-table-form>
+      </div>
+      <p class="message-footer text-center">
+        <ngb-alert class="message-bar" [dismissible]="false">
+          <div class="footer-buttons">
+          <button
+            type="button"
+            [routerLink]="['/tables']"
+            class="btn btn-outline-success"
+            id="view-rez-btn"
+          >
+            View Reservations
+          </button>
+          <button
+            type="button"
+            [routerLink]="['/home']"
+            class="btn btn-outline-success"
+          >
+            Home
+          </button>
+        </div>
+        </ngb-alert>
+      </p>
+    </div>
   </div>
 </div>

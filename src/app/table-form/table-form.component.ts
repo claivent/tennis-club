@@ -28,6 +28,8 @@ export class TableFormComponent implements OnInit {
     time: '',
   });
 
+  @Input() showDeleteButton = false;
+
   @Output()
   formValuesChanged = new EventEmitter<Table>();
 

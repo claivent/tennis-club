@@ -4,18 +4,16 @@
   [formGroup]="tableForm"
   (ngSubmit)="submitForm()"
 >
-  <div class="form-floating mb-3">
-    <input
-      class="form-control text-center"
-      type="text"
-      id="name"
-      formControlName="name"
-      placeholder="Name"
-      required
-    />
-    <label class="name-label text-center" for="name">Your Name</label>
-  </div>
-
+<div class="mb-3">
+  <input
+    type="text"
+    class="form-control border-success text-center"
+    id="name"
+    formControlName="name"
+    required
+    placeholder="Your Name"
+  />
+</div>
   <div
     *ngIf="name.invalid && (name.dirty || name.touched)"
     class="alert alert-danger"
@@ -26,8 +24,8 @@
     </div>
   </div>
 
-  <div class="form-floating mb-3">
-    <div ngbDropdown [formGroup]="tableForm" class="w-100">
+  <div class="form-floating mb-3 w-100">
+    <div ngbDropdown [formGroup]="tableForm">
       <button
         class="btn btn-outline-success dropdown-toggle w-100"
         id="partyDropdown"
@@ -129,9 +127,9 @@
       </div>
     </div>
   </div>
-  <div class="button-footer text-center mb-5">
+  <div class="button-footer text-center mb-3">
     <button
-      class="btn btn-success me-2 w-100"
+      class="btn btn-success w-50"
       type="submit"
       [disabled]="tableForm.invalid"
     >
@@ -139,13 +137,9 @@
     </button>
   </div>
 </form>
-<div class="button-footer text-center mb-3">
-  <a class="btn btn-outline-success" href="/tables" role="button"
-    >View Reservations</a
-  >
-</div>
-<div class="button-footer text-center mb-5">
-  <button class="btn btn-outline-danger me-2" (click)="deleteTable()">
-    Cancel
+
+<div class="button-footer text-center" *ngIf="showDeleteButton">
+  <button class="btn btn-outline-danger w-50" (click)="deleteTable()">
+    Delete
   </button>
 </div>

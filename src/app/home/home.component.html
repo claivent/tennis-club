@@ -1,12 +1,37 @@
 <div class="container">
-  <div class="form-container">
-    <div class="logo-div text-center mt-5">
-      <a><img src="assets/logo2.png" [routerLink]="['/home']" alt="Club Lob" height="200" /></a>
+  <div class="row">
+    <div class="image-holder col-md-6 text-center p-5">
+      <img src="assets/courts1.png" class="img-fluid" alt="Responsive image" />
     </div>
-    <div class="button-div text-center">
-      <button type="button" [routerLink]="['/tables/new']" class="btn btn-outline-success btn-lg mt-5">
-        Reserve Court
-      </button>
+    <div class="form-holder col-md-6 text-center p-5">
+      
+      <a
+        ><img
+          src="assets/logo.png"
+          [routerLink]="['/home']"
+          alt="club logo"
+          class="club-logo"
+          height="150"
+      /></a>
+     
+      <div class="button-div text-center">
+        <button
+          type="button"
+          [routerLink]="['/tables/new']"
+          class="btn btn-outline-success btn-lg"
+        >
+          Reserve Court
+        </button>
+      </div>
+      <div class="button-div text-center">
+        <button
+          type="button"
+          [routerLink]="['/tables']"
+          class="btn btn-outline-success btn-lg mt-3"
+        >
+          View Reservations
+        </button>
+      </div>
     </div>
   </div>
 </div>
