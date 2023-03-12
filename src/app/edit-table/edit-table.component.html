@@ -1,10 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="image-holder col-md-6 text-center p-5">
-      <img src="assets/player2.png" class="img-fluid" alt="Responsive image" />
+      <img
+        src="assets/player-400x600.png"
+        class="img-fluid"
+        alt="Responsive image"
+      />
     </div>
 
     <div class="form-holder col-md-6 text-center p-5">
+      <div class="logo" *ngIf="isSmallScreen">
+        <img src="assets/logo.png" class="img-fluid" alt="Responsive image" />
+      </div>
       <p class="message-bar1 text-center">
         <ngb-alert class="message-bar" [dismissible]="false">
           <h2 class="message-header text-center">Edit Reservation</h2>
@@ -12,30 +19,30 @@
       </p>
       <div class="form-container text-center">
         <app-table-form
-        [initialState]="table"
-        (formSubmitted)="editTable($event)"
-        [showDeleteButton]="true"
-      ></app-table-form>
+          [initialState]="table"
+          (formSubmitted)="editTable($event)"
+          [showDeleteButton]="true"
+        ></app-table-form>
       </div>
       <p class="message-footer text-center">
         <ngb-alert class="message-bar" [dismissible]="false">
           <div class="footer-buttons">
-          <button
-            type="button"
-            [routerLink]="['/tables']"
-            class="btn btn-outline-success"
-            id="view-rez-btn"
-          >
-            View Reservations
-          </button>
-          <button
-            type="button"
-            [routerLink]="['/home']"
-            class="btn btn-outline-success"
-          >
-            Home
-          </button>
-        </div>
+            <button
+              type="button"
+              [routerLink]="['/tables']"
+              class="btn btn-outline-success"
+              id="view-rez-btn"
+            >
+              View Reservations
+            </button>
+            <button
+              type="button"
+              [routerLink]="['/home']"
+              class="btn btn-outline-success"
+            >
+              Home
+            </button>
+          </div>
         </ngb-alert>
       </p>
     </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="image-holder col-md-6 text-center p-5">
-      <img src="assets/courts1.png" class="img-fluid" alt="Responsive image" />
+      <img src="assets/pink-balls-400x600.png" class="img-fluid" alt="Responsive image" />
     </div>
     <div class="form-holder col-md-6 text-center p-5">
       
@@ -11,27 +11,36 @@
           [routerLink]="['/home']"
           alt="club logo"
           class="club-logo"
-          height="150"
+          height="200"
       /></a>
      
-      <div class="button-div text-center">
-        <button
+  
+      <p class="message-footer text-center">
+        <ngb-alert class="message-bar" [dismissible]="false">
+          <div class="footer-buttons">
+            <button
           type="button"
           [routerLink]="['/tables/new']"
           class="btn btn-outline-success btn-lg"
         >
           Reserve Court
         </button>
-      </div>
-      <div class="button-div text-center">
-        <button
-          type="button"
-          [routerLink]="['/tables']"
-          class="btn btn-outline-success btn-lg mt-3"
-        >
-          View Reservations
-        </button>
-      </div>
+        </div>
+        </ngb-alert>
+      </p>
+      <p class="message-footer text-center">
+        <ngb-alert class="message-bar" [dismissible]="false">
+          <div class="footer-buttons">
+            <button
+            type="button"
+            [routerLink]="['/tables']"
+            class="btn btn-outline-success btn-lg"
+          >
+            View Reservations
+          </button>
+        </div>
+        </ngb-alert>
+      </p>
     </div>
   </div>
 </div>

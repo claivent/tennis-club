@@ -42,3 +42,8 @@
 #view-rez-btn {
   margin-right: 1rem;
 }
+.logo img {
+  max-height: 100px;
+  width: auto;
+  margin-bottom: 1.5rem;
+}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Table } from '../table';
 import { TableService } from '../table.service';
+import { ScreenService } from '../screen.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -9,7 +10,15 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-table.component.css'],
 })
 export class AddTableComponent {
-  constructor(private router: Router, private tableService: TableService) {}
+  constructor(private router: Router, private tableService: TableService, private screenService: ScreenService) {}
+
+  isSmallScreen = false;  
+
+  ngOnInit() {
+    this.screenService.isSmallScreen.subscribe(isSmallScreen => {
+      this.isSmallScreen = isSmallScreen;
+    });
+  }
 
   getDate(): string {
     const date = new Date();

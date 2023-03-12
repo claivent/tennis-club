@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Table } from '../table';
 import { TableService } from '../table.service';
+import { ScreenService } from '../screen.service';
 
 @Component({
   selector: 'app-edit-table.component.ts',
@@ -22,8 +23,11 @@ export class EditTableComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private tableService: TableService
+    private tableService: TableService,
+    private screenService: ScreenService
   ) {}
+
+  isSmallScreen = false;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -33,6 +37,10 @@ export class EditTableComponent implements OnInit {
 
     this.tableService.getTable(id!).subscribe((table) => {
       this.table.next(table);
+    });
+
+    this.screenService.isSmallScreen.subscribe((isSmallScreen) => {
+      this.isSmallScreen = isSmallScreen;
     });
   }
 

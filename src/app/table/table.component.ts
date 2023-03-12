@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { Table } from '../table';
 import { TableService } from '../table.service';
+import { ScreenService } from '../screen.service';
 import { MatSort, Sort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -29,12 +30,17 @@ export class TableComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort = new MatSort();
 
-  constructor(private tablesService: TableService) {}
+  constructor(private tablesService: TableService, private screenService: ScreenService) {}
+
+  isSmallScreen = false;  
 
   ngOnInit(): void {
     this.tablesService.getTables().subscribe((tables) => {
       this.dataSource.data = tables;
       this.dataSource.sort = this.sort;
+    });
+    this.screenService.isSmallScreen.subscribe(isSmallScreen => {
+      this.isSmallScreen = isSmallScreen;
     });
   }
 

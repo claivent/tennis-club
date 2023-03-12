@@ -1,13 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="image-holder col-md-6 text-center p-5">
-      <img src="assets/player2.png" class="img-fluid" alt="Responsive image" />
+    <div class="image-holder col-md-6 text-center p-5" [ngStyle]="{'padding': isSmallScreen ? '0 0.5rem' : '0 1rem'}">
+      <img src="assets/player-400x600.png" class="img-fluid" alt="Responsive image" />
     </div>
 
-    <div class="form-holder col-md-6 text-center p-5">
+    <div class="form-holder col-md-6 text-center p-5" [ngStyle]="{'padding': isSmallScreen ? '0 0.5rem' : '0 1rem'}">
+      <div class="logo" *ngIf="isSmallScreen">
+        <img src="assets/logo.png" class="img-fluid" alt="Responsive image" />
+      </div>
       <p class="message-bar1 text-center">
         <ngb-alert class="message-bar" [dismissible]="false">
-          New Reservation for:<br /><strong>{{ getDate() }}</strong>
+          <h2 class="page-title">New Reservation for:<br />{{ getDate() }}</h2>
         </ngb-alert>
       </p>
       <div class="form-container text-center">
