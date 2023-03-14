@@ -1,14 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="image-holder col-md-6 text-center p-5">
+    <div class="image-holder col-md-6 text-center">
       <img src="assets/grass-court-400x600.png" class="img-fluid" alt="Responsive image" />
     </div>
-    <div class="form-holder col-md-6 text-center p-5">
+    <div class="form-holder col-md-6 text-center">
       <div class="logo" *ngIf="isSmallScreen">
         <img src="assets/logo.png" class="img-fluid" alt="Responsive image" />
       </div>
-      <div class="text-center">
-        <p class="message-header text-center">
+      <div class="table-content text-center">
+        <p class="message-header">
           <ngb-alert class="message-bar" [dismissible]="false">
             <h2 class="page-title">{{ getDate() }}</h2> 
           </ngb-alert>
@@ -59,7 +59,7 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
-        <p class="message-footer text-center">
+        <p class="message-footer">
           <ngb-alert class="message-bar" [dismissible]="false">
             <div class="footer-buttons">
             <button

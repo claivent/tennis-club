@@ -15,12 +15,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
   .image-holder {
     display: none;
   }
+}
+
+.table-content {
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.image-holder {
+  padding: 2rem 2rem;
 }
 .club-logo {
   margin-bottom: 1rem;
@@ -34,10 +42,7 @@
   margin-top: auto;
   margin-bottom: auto;
 }
-.form-container {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
+ 
 .message-bar {
   background-color: #d4edda;
   color: #155724;

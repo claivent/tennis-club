@@ -28,6 +28,16 @@
     display: none;
   }
 }
+.image-holder {
+  padding: 2rem 2rem;
+}
+
+.table-content {
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .form-holder,
 .image-holder {
   margin-top: auto;
