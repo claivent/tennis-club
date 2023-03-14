@@ -6,15 +6,22 @@
   max-width: 850px;
 }
 @media (max-width: 767px) {
-  .row {
-    display: flex;
-    flex-direction: column-reverse;
-  }
   .col-md-6 {
     width: 100%;
   }
+  .form-holder {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .image-holder {
+    display: none;
+  }
 }
-
 .club-logo {
   margin-bottom: 1rem;
 }
@@ -44,7 +51,7 @@
   margin-bottom: -0.5rem;
 }
 .logo img {
-  max-height: 100px;
+  max-height: 150px;
   width: auto;
   margin-bottom: 1.5rem;
 }

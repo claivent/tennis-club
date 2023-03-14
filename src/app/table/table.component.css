@@ -14,8 +14,18 @@
     display: flex;
     flex-direction: column-reverse;
   }
+  .form-holder {
+    height: 100vh;  
+    display: flex;  
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center; 
+  }
   .col-md-6 {
     width: 100%;
+  }
+  .image-holder {
+    display: none;
   }
 }
 .form-holder,
@@ -70,7 +80,7 @@ td {
   margin-bottom: -0.1rem;
 }
 .logo img {
-  max-height: 100px;
+  max-height: 150px;
   width: auto;
   margin-bottom: 1.5rem;
 }

@@ -13,13 +13,14 @@
   .col-md-6 {
     width: 100%;
   }
-  .form-holder-content {
-    min-height: 500px;
-    margin-top: 4rem;
-
-  }
   .form-holder {
-    height: 100vh;
+    height: 100vh;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center; 
+  }
+  .image-holder {
+    display: none; 
   }
 }
 .club-logo {
