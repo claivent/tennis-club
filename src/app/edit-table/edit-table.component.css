@@ -34,6 +34,9 @@
   margin-top: auto;
   margin-bottom: auto;
 }
+.image-holder {
+  padding: 2rem 2rem;
+}
 .form-container {
   margin-top: 2rem;
   margin-bottom: 2rem;
