@@ -13,6 +13,14 @@
   .col-md-6 {
     width: 100%;
   }
+  .form-holder-content {
+    min-height: 500px;
+    margin-top: 4rem;
+
+  }
+  .form-holder {
+    height: 100vh;
+  }
 }
 .club-logo {
   margin-bottom: 3rem;
