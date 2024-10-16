@@ -7,9 +7,9 @@ import { Table } from './table';
   providedIn: 'root',
 })
 export class TableService {
-  // private url = 'https://tennis-backend.herokuapp.com';
-  private url = 'https://tenis-mnisek-e4b8f418024b.herokuapp.com'
-  //private url = 'http://localhost:5200';
+
+  //private url = 'https://tenis-mnisek-e4b8f418024b.herokuapp.com'
+  private url = 'http://localhost:5200';
   private tables$: Subject<Table[]> = new Subject();
 
   constructor(private httpClient: HttpClient) {}

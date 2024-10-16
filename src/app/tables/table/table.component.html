@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="image-holder col-md-6 text-center">
-      <img src="assets/grass-court-400x600.png" class="img-fluid" alt="Responsive image" />
+      <img src="../../../assets/grass-court-400x600.png" class="img-fluid" alt="Responsive image" />
     </div>
     <div class="form-holder col-md-6 text-center">
       <div class="logo" *ngIf="isSmallScreen">
-        <img src="assets/logo.png" class="img-fluid" alt="Responsive image" />
+        <img src="../../../assets/logo.png" class="img-fluid" alt="Responsive image" />
       </div>
       <div class="table-content text-center">
         <p class="message-header">
@@ -55,6 +55,17 @@
               Players
             </th>
             <td mat-cell *matCellDef="let table">{{ table.party }}</td>
+          </ng-container>
+          <ng-container matColumnDef="date">
+            <th
+              class="header-player"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header
+            >
+              Players
+            </th>
+            <td mat-cell *matCellDef="let table">{{ table.date }}</td>
           </ng-container>
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>

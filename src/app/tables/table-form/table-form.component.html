@@ -127,6 +127,31 @@
       </div>
     </div>
   </div>
+
+  <div>
+
+    <input
+      type="number"
+      class="form-control border-success text-center"
+      id="date"
+      formControlName="date"
+      required
+      placeholder="date"
+      [value]="unixDate"
+      (input)="onUnixInputChange($event)"
+    />
+
+    <app-date-picker2
+      [selectedTimeFromParent]="selectedTime"
+      (dateChanged)="onDateChange($event)"
+      (timeChanged)="onTimeChange($event)"
+      (unixChanged)="onUnixChange($event)">
+    </app-date-picker2>
+
+
+  </div>
+
+
   <div class="button-footer text-center mb-3">
     <button
       class="btn btn-success w-50"

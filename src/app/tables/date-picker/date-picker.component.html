@@ -1,0 +1,39 @@
+<div class="date-picker">
+  <div>
+    <button (click)="changeYear(selectedYear - 1)">-1</button>
+    <span>Rok: {{ selectedYear }}</span>
+    <button (click)="changeYear(selectedYear + 1)">+1</button>
+  </div>
+
+  <div>
+    <button (click)="changeMonth(selectedMonth - 1)" [disabled]="selectedMonth === 0">-</button>
+    <span>Měsíc: {{ selectedMonth + 1 }}</span>
+    <button (click)="changeMonth(selectedMonth + 1)" [disabled]="selectedMonth === 11">+</button>
+  </div>
+
+  <div>
+    <button (click)="changeDay(selectedDay - 1)" [disabled]="selectedDay === 1">-</button>
+    <span>Den: {{ selectedDay }}</span>
+    <button (click)="changeDay(selectedDay + 1)" [disabled]="selectedDay === daysInMonth.length">+</button>
+  </div>
+
+  <div>
+    <button (click)="changeHour(selectedHour - 1)" [disabled]="selectedHour === 0">-</button>
+    <span>Hodina: {{ selectedHour.toString().padStart(2, '0') }}</span>
+    <button (click)="changeHour(selectedHour + 1)" [disabled]="selectedHour === 23">+</button>
+  </div>
+
+  <div>
+    <button (click)="changeMinute(selectedMinute - 15)" [disabled]="selectedMinute === 0">-</button>
+    <span>čtvrtHodina: {{ selectedMinute.toString().padStart(2, '0') }}</span>
+    <button (click)="changeMinute(selectedMinute + 15)" [disabled]="selectedMinute === 45">+</button>
+  </div>
+  <div>
+    <ul class="picket-time-view">
+      <li>{{selectedDay}}. </li>
+      <li>{{selectedMonth+1}}. </li>
+      <li>{{selectedYear}} - </li>
+      <li>{{selectedHour}}:{{selectedMinute}}</li>
+    </ul>
+  </div>
+</div>
