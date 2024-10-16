@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Table } from '../table';
-import { TableService } from '../table.service';
-import { ScreenService } from '../screen.service';
+import { Table } from '../../table';
+import { TableService } from '../../table.service';
+import { ScreenService } from '../../screen.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

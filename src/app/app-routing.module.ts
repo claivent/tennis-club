@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddTableComponent } from './add-table/add-table.component';
-import { EditTableComponent } from './edit-table/edit-table.component';
-import { HomeComponent } from './home/home.component';
-import { TableComponent } from './table/table.component';
+import { AddTableComponent } from './tables/add-table/add-table.component';
+import { EditTableComponent } from './tables/edit-table/edit-table.component';
+import { HomeComponent } from './tables/home/home.component';
+import { TableComponent } from './tables/table/table.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Table } from '../table';
-import { TableService } from '../table.service';
-import { ScreenService } from '../screen.service';
+import { Table } from '../../table';
+import { TableService } from '../../table.service';
+import { ScreenService } from '../../screen.service';
 
 @Component({
   selector: 'app-edit-table.component.ts',
@@ -18,7 +18,7 @@ export class EditTableComponent implements OnInit {
     name: '',
     party: '',
     time: '',
-    date: '',
+    date: 0,
   });
 
   constructor(
@@ -26,6 +26,7 @@ export class EditTableComponent implements OnInit {
     private route: ActivatedRoute,
     private tableService: TableService,
     private screenService: ScreenService
+
   ) {}
 
   isSmallScreen = false;

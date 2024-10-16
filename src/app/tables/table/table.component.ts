@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
-import { Table } from '../table';
-import { TableService } from '../table.service';
-import { ScreenService } from '../screen.service';
+import { Table } from '../../table';
+import { TableService } from '../../table.service';
+import { ScreenService } from '../../screen.service';
 import { MatSort, Sort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -20,14 +20,14 @@ export class TableComponent implements OnInit {
     name: '',
     party: '',
     time: '',
-    date: '',
+    date: 0,
   });
 
   tables$: Observable<Table[]> = new Observable();
 
   dataSource: MatTableDataSource<Table> = new MatTableDataSource<Table>([]);
 
-  displayedColumns: string[] = ['name', 'party', 'time'];
+  displayedColumns: string[] = ['name', 'party', 'time', 'date'];
 
   @ViewChild(MatSort) sort: MatSort = new MatSort();
 
