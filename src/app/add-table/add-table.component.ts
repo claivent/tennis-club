@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AddTableComponent {
   constructor(private router: Router, private tableService: TableService, private screenService: ScreenService) {}
 
-  isSmallScreen = false;  
+  isSmallScreen = false;
 
   ngOnInit() {
     this.screenService.isSmallScreen.subscribe(isSmallScreen => {
@@ -25,10 +25,10 @@ export class AddTableComponent {
     if (date.getHours() >= 14) {
       date.setDate(date.getDate() + 1);
     }
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleDateString('cs-CZ', {
       weekday: 'long',
       year: 'numeric',
-      month: 'short',
+      month: 'long',
       day: 'numeric',
     });
   }
@@ -39,7 +39,7 @@ export class AddTableComponent {
         this.router.navigate(['/tables']);
       },
       error: (error) => {
-        alert('Failed to create table');
+        alert('Nelze přidat záznam');
         console.error(error);
       },
     });

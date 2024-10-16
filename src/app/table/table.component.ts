@@ -20,8 +20,9 @@ export class TableComponent implements OnInit {
     name: '',
     party: '',
     time: '',
+    date: '',
   });
-  
+
   tables$: Observable<Table[]> = new Observable();
 
   dataSource: MatTableDataSource<Table> = new MatTableDataSource<Table>([]);
@@ -32,7 +33,7 @@ export class TableComponent implements OnInit {
 
   constructor(private tablesService: TableService, private screenService: ScreenService) {}
 
-  isSmallScreen = false;  
+  isSmallScreen = false;
 
   ngOnInit(): void {
     this.tablesService.getTables().subscribe((tables) => {
@@ -53,7 +54,7 @@ export class TableComponent implements OnInit {
     }
 
   const isAsc = sort.direction === 'asc';
-  
+
   data.sort((a, b) => {
     const valueA = a[sort.active];
     const valueB = b[sort.active];
@@ -69,7 +70,7 @@ export class TableComponent implements OnInit {
     if (date.getHours() >= 14) {
       date.setDate(date.getDate() + 1);
     }
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleDateString('cs-CZ', {
       weekday: 'long',
       year: 'numeric',
       month: 'short',

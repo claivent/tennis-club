@@ -18,6 +18,7 @@ export class EditTableComponent implements OnInit {
     name: '',
     party: '',
     time: '',
+    date: '',
   });
 
   constructor(

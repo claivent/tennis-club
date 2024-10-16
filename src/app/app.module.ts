@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { registerLocaleData } from '@angular/common';
+import localeCs from '@angular/common/locales/cs';
+registerLocaleData(localeCs);
 
 @NgModule({
   declarations: [
@@ -37,7 +40,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
     NgbDropdownModule,
     NgbAlertModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'cs-CZ' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

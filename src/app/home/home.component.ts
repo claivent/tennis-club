@@ -14,10 +14,10 @@ export class HomeComponent implements OnInit {
     if (date.getHours() >= 14) {
       date.setDate(date.getDate() + 1);
     }
-    return date.toLocaleDateString('en-US', {
+    return date.toLocaleDateString('cs-CZ', {
       weekday: 'long',
       year: 'numeric',
-      month: 'short',
+      month: 'long',
       day: 'numeric',
     });
   }

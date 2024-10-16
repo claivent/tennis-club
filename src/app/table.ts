@@ -3,5 +3,6 @@ export interface Table {
   name: string;
   party: string;
   time: string;
+  date: string;
   [key: string]: any;
 }

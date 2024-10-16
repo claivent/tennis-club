@@ -18,6 +18,7 @@ export class TableFormComponent implements OnInit {
     name: '',
     party: '',
     time: '',
+    date: '',
   });
 
   @Input()
@@ -26,6 +27,7 @@ export class TableFormComponent implements OnInit {
     name: '',
     party: '',
     time: '',
+    date: '',
   });
 
   @Input() showDeleteButton = false;
@@ -95,7 +97,7 @@ export class TableFormComponent implements OnInit {
       this.table.next(table);
     });
   }
-  
+
 
   submitForm() {
     const formValue = this.tableForm.value;
