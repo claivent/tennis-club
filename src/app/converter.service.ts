@@ -33,7 +33,7 @@ export function getUnixTimestamp(selectedDate: Date | null, selectedTime: string
   selectedDate.setHours(hours);
   selectedDate.setMinutes(minutes);
 
-  console.log("getUnixTimestamp",selectedDate, Math.floor(selectedDate.getTime() / 1000));
+  console.log("getUnixTimestamp",selectedDate,selectedTime, Math.floor(selectedDate.getTime() / 1000));
   // Vrátí UNIX timestamp v sekundách
   return Math.floor(selectedDate.getTime() / 1000);
 }

@@ -15,12 +15,12 @@ import { unixToTime, timeToUnix, getUnixTimestamp, fromUnixTimestamp} from "../.
 export class TableFormComponent implements OnInit {
   selectedDate: Date | null = null;
   selectedTime: string | null = null;
-  unixDate: number = 0;
+  unixDate: number =0;
 
 
   private tempDate!: any;
 
-  updateUnixDate() {
+  /*updateUnixDate() {
     const date = this.tableForm.get('date')?.value;
     const time = this.selectedTime;
 
@@ -29,24 +29,24 @@ export class TableFormComponent implements OnInit {
       this.unixDate = unixTimestamp;
       this.tableForm.patchValue({ date: unixTimestamp });
     }
-  }
+  }*/
 
 
-  // Funkce pro přijetí změny data
+  /*// Funkce pro přijetí změny data
   onDateChange(newDate: Date | null): void {
     this.selectedDate =  newDate;
     this.tableForm.patchValue({ date: this.unixDate });
     this.updateUnixDate();
 
 
-  }
+  }*/
 
-  // Funkce pro přijetí změny času
+  /*// Funkce pro přijetí změny času
   onTimeChange(newTime: string | null): void {
     this.selectedTime = newTime;
-    this.selectedTime = newTime;
+   // this.selectedTime = newTime;
     this.updateUnixDate();
-  }
+  }*/
 
   onUnixInputChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement; // Řekni TS, že target je HTMLInputElement
@@ -54,11 +54,17 @@ export class TableFormComponent implements OnInit {
     this.onUnixChange(unixValue);
   }
 
+  // Funkce pro přijetí změny unixového času z DatePicker2Component
   onUnixChange(unixTimestamp: number): void {
-
     this.unixDate = unixTimestamp;
+    this.tableForm.patchValue({ date: unixTimestamp })
+    console.log("TFC", this.unixDate);
+  }
 
-    // Další logika podle potřeby
+  ngonchange(){
+    this.unixDate = this.tableForm.value;
+    console.log("TFC-ngonChange", this.unixDate);
+
   }
 
 
@@ -137,10 +143,10 @@ export class TableFormComponent implements OnInit {
         date:[table.date, [Validators.required]],
       });
 
-      this.tempDate = fromUnixTimestamp(this.tableForm.value.date);
+      /*this.tempDate = fromUnixTimestamp(this.tableForm.value.date);
       if(this.tempDate !== null){this.selectedDate = this.tempDate.selectedDate;
         this.selectedTime =this.tempDate.selectedTime;
-        this.unixDate = this.tableForm.value.date;}
+        this.unixDate = this.tableForm.value.date;}*/
 
 
 
@@ -164,10 +170,7 @@ export class TableFormComponent implements OnInit {
     this.onTimeChange(this.tableForm.value.time);
   }*/
 
-  ngDoChecked() {
 
-
-  }
 
   deleteTable(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -188,12 +191,11 @@ export class TableFormComponent implements OnInit {
     });
   }
 
-
   submitForm() {
     const formValue = this.tableForm.value;
     this.table = { ...formValue, _id: formValue._id };
     this.formSubmitted.emit(formValue);
   }
 
-  protected readonly parseFloat = parseFloat;
+
 }

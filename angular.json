@@ -31,6 +31,8 @@
           },
           "configurations": {
             "production": {
+              "optimization": true,
+              "sourceMap": true,
               "budgets": [
                 {
                   "type": "initial",
