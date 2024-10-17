@@ -22,6 +22,7 @@ export class DatePickerComponent implements OnInit {
     this.selectedHour = this.currentDate.getHours();
     this.selectedMinute = Math.floor(this.currentDate.getMinutes() / 15) * 15; // zaokrouhlení na 15 minut
     this.daysInMonth = this.getDaysInMonth(this.selectedYear, this.selectedMonth);
+
   }
 
   ngOnInit() {}

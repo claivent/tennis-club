@@ -38,7 +38,9 @@ export function getUnixTimestamp(selectedDate: Date | null, selectedTime: string
   return Math.floor(selectedDate.getTime() / 1000);
 }
 
-export function fromUnixTimestamp(unixTimestamp: number): { selectedDate: Date, selectedTime: string } | null {
+export function fromUnixTimestamp(unixTimestamp: number): {
+  selectedDate: Date,
+  selectedTime: string } | null {
   if (!unixTimestamp) {
     return null;
   }
@@ -55,6 +57,14 @@ export function fromUnixTimestamp(unixTimestamp: number): { selectedDate: Date, 
     selectedDate: date,
     selectedTime: `${hours}:${minutes}`,
   };
+}
+
+export function getDate2(date: Date): string{
+  return date.toLocaleDateString('cs-CZ', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
 }
 
 

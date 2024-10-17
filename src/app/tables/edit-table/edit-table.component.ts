@@ -19,6 +19,8 @@ export class EditTableComponent implements OnInit {
     party: '',
     time: '',
     date: 0,
+    selectedDate: new Date(),
+    selectedTime: '',
   });
 
   constructor(
@@ -27,11 +29,12 @@ export class EditTableComponent implements OnInit {
     private tableService: TableService,
     private screenService: ScreenService
 
-  ) {}
+  ) {console.log('ED-constructor');}
 
   isSmallScreen = false;
 
   ngOnInit() {
+    console.log('ED-ngOnInit');
     const id = this.route.snapshot.paramMap.get('id');
     if (!id) {
       alert('No id provided');

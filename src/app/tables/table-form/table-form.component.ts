@@ -16,9 +16,8 @@ export class TableFormComponent implements OnInit {
   selectedDate: Date | null = null;
   selectedTime: string | null = null;
   unixDate: number =0;
-
-
   private tempDate!: any;
+  private counter = 0;
 
   /*updateUnixDate() {
     const date = this.tableForm.get('date')?.value;
@@ -32,21 +31,7 @@ export class TableFormComponent implements OnInit {
   }*/
 
 
-  /*// Funkce pro přijetí změny data
-  onDateChange(newDate: Date | null): void {
-    this.selectedDate =  newDate;
-    this.tableForm.patchValue({ date: this.unixDate });
-    this.updateUnixDate();
 
-
-  }*/
-
-  /*// Funkce pro přijetí změny času
-  onTimeChange(newTime: string | null): void {
-    this.selectedTime = newTime;
-   // this.selectedTime = newTime;
-    this.updateUnixDate();
-  }*/
 
   onUnixInputChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement; // Řekni TS, že target je HTMLInputElement
@@ -61,11 +46,11 @@ export class TableFormComponent implements OnInit {
     console.log("TFC", this.unixDate);
   }
 
-  ngonchange(){
+/*  ngonchange(){
     this.unixDate = this.tableForm.value;
     console.log("TFC-ngonChange", this.unixDate);
 
-  }
+  }*/
 
 
 
@@ -82,6 +67,8 @@ export class TableFormComponent implements OnInit {
     party: '',
     time: '',
     date: 0,
+    selectedDate: new Date(),
+    selectedTime: '',
   });
 
   @Input()
@@ -91,6 +78,8 @@ export class TableFormComponent implements OnInit {
     party: '',
     time: '',
     date: 0,
+    selectedDate: new Date(),
+    selectedTime: '',
   });
 
 
@@ -115,7 +104,7 @@ export class TableFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
 
-  ) {}
+  ) {console.log('TFC-constructor');}
 
   get name() {
     return this.tableForm.get('name')!;
@@ -134,22 +123,23 @@ export class TableFormComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('TFC-ngOnInit');
     this.initialState.subscribe((table) => {
-
+      this.counter++;
+      console.log("TFC-counter", this.counter);console.log("TFC-table", table);
       this.tableForm = this.fb.group({
         name: [table.name, [Validators.required]],
         party: [table.party, [Validators.required, Validators.maxLength(6)]],
-        time: [table.time, [Validators.required]],
         date:[table.date, [Validators.required]],
       });
 
-      /*this.tempDate = fromUnixTimestamp(this.tableForm.value.date);
-      if(this.tempDate !== null){this.selectedDate = this.tempDate.selectedDate;
-        this.selectedTime =this.tempDate.selectedTime;
-        this.unixDate = this.tableForm.value.date;}*/
+
+      this.tempDate = this.tableForm.value.date;
+      if(this.tempDate !== 0){
+        this.unixDate = this.tableForm.value.date;}
 
 
-
+      console.log("TFC-table-end-ngOnInit", table);
     });
 
 
@@ -166,10 +156,6 @@ export class TableFormComponent implements OnInit {
 
 
   }
-  /*ngDoCheck() {
-    this.onTimeChange(this.tableForm.value.time);
-  }*/
-
 
 
   deleteTable(): void {

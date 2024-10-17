@@ -14,7 +14,7 @@
   </li>
   <li>
     <mat-form-field appearance="fill">
-      <mat-label>Vyberte čas</mat-label>
+      <mat-label>Vyberte čas od:</mat-label>
       <mat-select
         [(ngModel)]="selectedTime"
         (ngModelChange)="onTimeChange($event)"
@@ -29,5 +29,5 @@
 </ul>
 
 <p>datum Od: {{ selectedDate | date: 'dd.MM.yyyy' }} : {{ selectedTime }}</p>
-<p >{{unixDate}}</p>
+<!--<p >{{unixDate}}</p>-->
 

@@ -1,5 +1,5 @@
 import {Component, Output,SimpleChanges, EventEmitter, OnInit, Input} from '@angular/core';
-import {getUnixTimestamp} from "../../converter.service";
+import {getUnixTimestamp, fromUnixTimestamp} from "../../converter.service";
 
 @Component({
   selector: 'app-date-picker2',
@@ -42,11 +42,15 @@ export class DatePicker2Component implements OnInit {
   constructor() {
     this.selectedDate = new Date();
     this.selectedTime =  new Date().getHours() + ':30';
-    console.log("DP-selectedDate",this.selectedDate);
-    console.log("DP-selectedTime",this.selectedTime);
+    console.log('DP-constructor');
+    console.log("DP-constructor-selectedDate",this.selectedDate);
+    console.log("DP-constructor-selectedTime",this.selectedTime);
+
   }
 
   ngOnInit(): void {
+    console.log('DP-ngOnInit');
+    console.log("DP-ngOnInit-selectedDateFromParent",this.selectedDateFromParent);
     this.unixDate = getUnixTimestamp(this.selectedDate, this.selectedTime);
     // Emit initial values when the component initializes
 
@@ -56,12 +60,51 @@ export class DatePicker2Component implements OnInit {
   }
 
 
+  // Function to emit current values FROM the parent
   // Call this function whenever the date or time changes
-  @Input() selectedTimeFromParent: any = '00:00';
   @Input() selectedDateFromParent!: any;
 
-  // Function to emit current values to the parent
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['selectedDateFromParent']) {
+      // Update your internal selectedDate based on parent input
+      this.unixDate = changes['selectedDateFromParent'].currentValue;
+
+      // Convert Unix timestamp to Date and Time
+      const tmpDate = fromUnixTimestamp(this.unixDate);
+
+      // Ensure tmpDate exists and has the necessary properties
+      if (tmpDate) {
+        this.selectedDate = tmpDate.selectedDate || null;
+        this.selectedTime = tmpDate.selectedTime || '';  // Handle selectedTime default value
+      } else {
+        console.error("DP-ngOnChanges-tmpDate is null or undefined");
+      }
+      console.log("DP-ngOnChanges-tmpDate",tmpDate);
+      this.emitDateTime();
+      console.log("DP-ngOnChanges-selectedDateFromParent",this.selectedDateFromParent)
+    }
+  }
+  /*ngOnChanges(changes: SimpleChanges) {
+    if (changes['selectedDateFromParent'] && changes['selectedUnixDate'].currentValue) {
+      // Zde můžete provést akce po přijetí nových dat
+      console.log('Received updated Unix date from parent:', this.selectedUnixDate);
+    }*/
+  /*ngOnChanges(changes: SimpleChanges) {
+    if (changes['selectedDateFromParent']) {
+      this.selectedDate = changes['selectedDateFromParent'].currentValue;
+      this.unixDate = getUnixTimestamp(this.selectedDate, this.selectedTime);
+      this.emitDateTime();
+    }
+  }*/
+
+  // Function to emit current values TO the parent
+
+  @Output() unixChanged = new EventEmitter<number | 0>();
+
+  private emitDateTime() {
+    this.unixChanged.emit(this.unixDate);
+  }
 
   onDateChange(newDate: Date) {
     this.selectedDate =  newDate;
@@ -80,13 +123,6 @@ export class DatePicker2Component implements OnInit {
   }
 
 
-  // Function to emit current values to the parent
-  @Output() unixChanged = new EventEmitter<number | 0>();
-
-
-  private emitDateTime() {
-    this.unixChanged.emit(this.unixDate);
-  }
 
 
 }

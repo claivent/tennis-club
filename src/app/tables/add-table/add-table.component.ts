@@ -10,7 +10,11 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-table.component.css'],
 })
 export class AddTableComponent {
-  constructor(private router: Router, private tableService: TableService, private screenService: ScreenService) {}
+  constructor(
+    private router: Router,
+    private tableService: TableService,
+    private screenService: ScreenService
+  ) {}
 
   isSmallScreen = false;
 

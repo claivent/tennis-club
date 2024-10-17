@@ -11,14 +11,14 @@
     id="name"
     formControlName="name"
     required
-    placeholder="Your Name"
+    placeholder="Vložte jméno a příjmení"
   />
 </div>
   <div
     *ngIf="name.invalid && (name.dirty || name.touched)"
     class="alert alert-danger"
   >
-    <div *ngIf="name.errors?.['required']">Name is required.</div>
+    <div *ngIf="name.errors?.['required']">Vaše jméno musí být zadané.</div>
     <div *ngIf="name.errors?.['minlength']">
       Name must be at least 3 characters long.
     </div>
@@ -33,27 +33,36 @@
         type="button"
       >
         {{
-          tableForm.get("party")?.value === 2
-            ? "Singles"
-            : tableForm.get("party")?.value === 4
-            ? "Doubles"
-            : "Select Match Type"
+          tableForm.get("party")?.value === 1
+            ? "rezerovat 1 hodinu"
+            : tableForm.get("party")?.value === 2
+            ? "rezerovat 2 hodiny"
+              : tableForm.get("party")?.value === 24
+                ? "rezerovat celý den (24 hodin)"
+            : "Počet hodin"
         }}
       </button>
       <div ngbDropdownMenu aria-labelledby="partyDropdown">
         <button
           class="dropdown-item"
           type="button"
-          (click)="tableForm.patchValue({ party: 2 })"
+          (click)="tableForm.patchValue({ party: 1 })"
         >
-          Singles
+          rezerovat 1 hodinu
         </button>
         <button
           class="dropdown-item"
           type="button"
-          (click)="tableForm.patchValue({ party: 4 })"
+          (click)="tableForm.patchValue({ party: 2 })"
         >
-          Doubles
+          rezerovat 2 hodiny
+        </button>
+        <button
+          class="dropdown-item"
+          type="button"
+          (click)="tableForm.patchValue({ party: 24 })"
+        >
+          rezerovat celý den (24 hodin)
         </button>
       </div>
     </div>
@@ -62,10 +71,10 @@
     *ngIf="party.invalid && (party.dirty || party.touched)"
     class="alert alert-danger"
   >
-    <div *ngIf="party.errors?.['required']">Match type is required.</div>
+    <div *ngIf="party.errors?.['required']">Počet hodin musí být vybrané.</div>
   </div>
 
-  <div class="form-floating mb-3">
+  <!--<div class="form-floating mb-3">
     <div ngbDropdown [formGroup]="tableForm">
       <button
         class="btn btn-outline-success dropdown-toggle w-100"
@@ -126,11 +135,11 @@
         </button>
       </div>
     </div>
-  </div>
+  </div>-->
 
   <div>
 
-    <input
+    <!--<input
       type="number"
       class="form-control border-success text-center"
       id="date"
@@ -139,10 +148,11 @@
       placeholder="date"
       [value]="unixDate"
       (input)="onUnixInputChange($event)"
-    />
+    />-->
 
     <app-date-picker2
       (unixChanged)="onUnixChange($event)"
+      [selectedDateFromParent] = "unixDate"
     >
     </app-date-picker2>
 
