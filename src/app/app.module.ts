@@ -1,6 +1,6 @@
 import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,38 +27,29 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 registerLocaleData(localeCs);
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    TableFormComponent,
-    AddTableComponent,
-    EditTableComponent,
-    HomeComponent,
-    TableComponent,
-    DatePickerComponent,
-    DatePicker2Component,
-
-
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    MatTableModule,
-    MatSortModule,
-    NgbDropdownModule,
-    NgbAlertModule,
-    MatDatepickerModule,
-    MatInputModule,
-    MatNativeDateModule,
-    FormsModule,
-    MatSelectModule,
-    MatFormFieldModule
-  ],
-  providers: [{ provide: LOCALE_ID, useValue: 'cs-CZ' }],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        TableFormComponent,
+        AddTableComponent,
+        EditTableComponent,
+        HomeComponent,
+        TableComponent,
+        DatePickerComponent,
+        DatePicker2Component,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        ReactiveFormsModule,
+        MatTableModule,
+        MatSortModule,
+        NgbDropdownModule,
+        NgbAlertModule,
+        MatDatepickerModule,
+        MatInputModule,
+        MatNativeDateModule,
+        FormsModule,
+        MatSelectModule,
+        MatFormFieldModule], providers: [{ provide: LOCALE_ID, useValue: 'cs-CZ' }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}
