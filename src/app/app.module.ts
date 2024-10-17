@@ -11,7 +11,7 @@ import { AddTableComponent } from './tables/add-table/add-table.component';
 import { EditTableComponent } from './tables/edit-table/edit-table.component';
 import { HomeComponent } from './tables/home/home.component';
 import { TableComponent } from './tables/table/table.component';
-import { MatTableModule } from '@angular/material/table';
+import { MatLegacyTableModule as MatTableModule } from '@angular/material/legacy-table';
 import { MatSortModule } from '@angular/material/sort';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,11 +19,11 @@ import { registerLocaleData } from '@angular/common';
 import localeCs from '@angular/common/locales/cs';
 import { DatePickerComponent } from './tables/date-picker/date-picker.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatInputModule } from '@angular/material/input';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DatePicker2Component } from './tables/date-picker2/date-picker2.component';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
 registerLocaleData(localeCs);
 
 
