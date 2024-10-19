@@ -86,18 +86,7 @@ export class DatePicker2Component implements OnInit {
       console.log("DP-ngOnChanges-selectedDateFromParent",this.selectedDateFromParent)
     }
   }
-  /*ngOnChanges(changes: SimpleChanges) {
-    if (changes['selectedDateFromParent'] && changes['selectedUnixDate'].currentValue) {
-      // Zde můžete provést akce po přijetí nových dat
-      console.log('Received updated Unix date from parent:', this.selectedUnixDate);
-    }*/
-  /*ngOnChanges(changes: SimpleChanges) {
-    if (changes['selectedDateFromParent']) {
-      this.selectedDate = changes['selectedDateFromParent'].currentValue;
-      this.unixDate = getUnixTimestamp(this.selectedDate, this.selectedTime);
-      this.emitDateTime();
-    }
-  }*/
+
 
   // Function to emit current values TO the parent
 

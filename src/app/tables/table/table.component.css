@@ -1,4 +1,5 @@
 .container {
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -15,11 +16,11 @@
     flex-direction: column-reverse;
   }
   .form-holder {
-    height: 100vh;  
-    display: flex;  
+    height: 100vh;
+    display: flex;
     flex-direction: column;
-    justify-content: center;  
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
   }
   .col-md-6 {
     width: 100%;
@@ -72,6 +73,7 @@ th {
   vertical-align: bottom;
 }
 td {
+  color: #2c3e50;
   font-size: 1rem;
   font-weight: 400;
   text-align: center;

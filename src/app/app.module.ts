@@ -24,6 +24,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DatePicker2Component } from './tables/date-picker2/date-picker2.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {CalendarModule, DateAdapter} from "angular-calendar";
+import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
+import {CalendarComponent} from "./tables/calendar/calendar.component";
+
 registerLocaleData(localeCs);
 
 
@@ -36,6 +40,8 @@ registerLocaleData(localeCs);
         TableComponent,
         DatePickerComponent,
         DatePicker2Component,
+        CalendarComponent
+
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
@@ -51,5 +57,12 @@ registerLocaleData(localeCs);
         MatNativeDateModule,
         FormsModule,
         MatSelectModule,
-        MatFormFieldModule], providers: [{ provide: LOCALE_ID, useValue: 'cs-CZ' }, provideHttpClient(withInterceptorsFromDi())] })
+        MatFormFieldModule,
+        CalendarModule.forRoot({
+          provide: DateAdapter,
+          useFactory: adapterFactory,
+        }),
+
+  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'cs-CZ' }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule {}

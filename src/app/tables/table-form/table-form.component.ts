@@ -19,18 +19,6 @@ export class TableFormComponent implements OnInit {
   private tempDate!: any;
   private counter = 0;
 
-  /*updateUnixDate() {
-    const date = this.tableForm.get('date')?.value;
-    const time = this.selectedTime;
-
-    if (date && time) {
-      const unixTimestamp = getUnixTimestamp(date, time);
-      this.unixDate = unixTimestamp;
-      this.tableForm.patchValue({ date: unixTimestamp });
-    }
-  }*/
-
-
 
 
   onUnixInputChange(event: Event): void {
@@ -45,17 +33,6 @@ export class TableFormComponent implements OnInit {
     this.tableForm.patchValue({ date: unixTimestamp })
     console.log("TFC", this.unixDate);
   }
-
-/*  ngonchange(){
-    this.unixDate = this.tableForm.value;
-    console.log("TFC-ngonChange", this.unixDate);
-
-  }*/
-
-
-
-
-
 
 
 

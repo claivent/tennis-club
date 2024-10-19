@@ -1,16 +1,20 @@
+
+
+
 <div class="container">
   <div class="row">
-    <div class="image-holder col-md-6 text-center">
+    <p>aaaaaaaaaaaaaaaaaaaaaa</p>
+   <!-- <div class="image-holder col-md-6 text-center">
       <img src="../../../assets/grass-court-400x600.png" class="img-fluid" alt="Responsive image" />
-    </div>
-    <div class="form-holder col-md-6 text-center">
+    </div>-->
+    <div class="form-holder col-md-12 text-center">
       <div class="logo" *ngIf="isSmallScreen">
         <img src="../../../assets/logo.png" class="img-fluid" alt="Responsive image" />
       </div>
       <div class="table-content text-center">
         <p class="message-header">
           <ngb-alert class="message-bar" [dismissible]="false">
-            <h2 class="page-title">{{ getDate() }}</h2>
+            <h2 class="page-title">Rezervace kurtu</h2>
           </ngb-alert>
         </p>
         <table
@@ -91,7 +95,14 @@
           </div>
           </ngb-alert>
         </p>
+        <div>
+
+          <app-calendar-component>
+
+          </app-calendar-component>
+        </div>
       </div>
     </div>
   </div>
+
 </div>

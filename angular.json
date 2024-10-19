@@ -32,7 +32,7 @@
           "configurations": {
             "production": {
               "optimization": true,
-              "sourceMap": true,
+              "sourceMap": false,
               "budgets": [
                 {
                   "type": "initial",
@@ -58,7 +58,7 @@
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true,
+              "sourceMap": false,
               "namedChunks": true
             }
           },

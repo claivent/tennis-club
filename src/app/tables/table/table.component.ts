@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
-import {Table, TableOutput} from '../../table';
+import {Table} from '../../table';
 import { TableService } from '../../table.service';
 import { ScreenService } from '../../screen.service';
 import { MatSort, Sort } from '@angular/material/sort';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import {fromUnixTimestamp, getDate2} from "../../converter.service";
+import {CalendarEvent} from "angular-calendar";
+import {CalendarComponent} from "../calendar/calendar.component";
 
 @Component({
   selector: 'app-table',
@@ -18,39 +20,25 @@ export class TableComponent implements OnInit {
 
 
 
-  table: BehaviorSubject<Table> = new BehaviorSubject<Table>({
-    _id: '',
-    name: '',
-    party: '',
-    time: '',
-    date: 0,
-    selectedDate: new Date(),
-    selectedTime: '',
-  });
 
-  tableOutput: BehaviorSubject<TableOutput> = new BehaviorSubject<TableOutput>({
-    _id: '',
-    name: '',
-    party: '',
-    time: '',
-    date: 0,
-    selectedDate: new Date(),
-    selectedTime: '',
-  });
 
-  tables$: Observable<Table[]> = new Observable();  // Vytvoření proměnné pro data z API
+  /*tables$: Observable<Table[]> = new Observable();  // Vytvoření proměnné pro data z API*/
 
   dataSource: MatTableDataSource<Table> = new MatTableDataSource<Table>([]);  // Vytvoření proměnné pro data z API
 
   displayedColumns: string[] = ['name', 'party', 'time', 'date'];   // Nastavení zobrazených sloupců
 
-  @ViewChild(MatSort) sort: MatSort = new MatSort(); // Vytvoření proměnné pro řazení tabulky
+  @ViewChild
+  (MatSort) sort: MatSort = new MatSort(); // Vytvoření proměnné pro řazení tabulky
 
   constructor(private tablesService: TableService, private screenService: ScreenService) {}
 
   isSmallScreen = false;
 
   ngOnInit(): void {
+    /*console.log('TBLES-Tables$', this.tables$);*/
+    console.log('TBLES-DS', this.dataSource.data);
+
     this.tablesService.getTables().subscribe((tables) => {    // Získání dat z API
       const obj = tables;
       for (const item of obj) { // Procházení všech položek v tabulce
@@ -64,9 +52,9 @@ export class TableComponent implements OnInit {
       this.dataSource.data = obj;  // Přiřazení dat do dataSource
       this.dataSource.sort = this.sort; // Přiřazení řazení do dataSource
 
-      console.log('TBLES-obj', obj);
+     /* console.log('TBLES-obj', obj);
       console.log('TBLES-tables', tables);
-      console.log('TBLES-DS', this.dataSource.data);
+      console.log('TBLES-DS', this.dataSource.data);*/
 
 
 
@@ -94,9 +82,9 @@ export class TableComponent implements OnInit {
   });
 }
 
-  private fetchTables(): void {
+  /*private fetchTables(): void {
     this.tables$ = this.tablesService.getTables();
-  }
+  }*/
   getDate(): string {
     const date = new Date();
     if (date.getHours() >= 14) {

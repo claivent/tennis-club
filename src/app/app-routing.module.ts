@@ -4,6 +4,7 @@ import { AddTableComponent } from './tables/add-table/add-table.component';
 import { EditTableComponent } from './tables/edit-table/edit-table.component';
 import { HomeComponent } from './tables/home/home.component';
 import { TableComponent } from './tables/table/table.component';
+import {CalendarComponent} from "./tables/calendar/calendar.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'tables', component: TableComponent },
   { path: 'tables/new', component: AddTableComponent },
   { path: 'tables/edit/:id', component: EditTableComponent },
+  { path: 'calendar', component: CalendarComponent },
 ];
 
 @NgModule({

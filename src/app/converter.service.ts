@@ -59,6 +59,19 @@ export function fromUnixTimestamp(unixTimestamp: number): {
   };
 }
 
+export function getDate(): string {
+  const date = new Date();
+  if (date.getHours() >= 14) {
+    date.setDate(date.getDate() + 1);
+  }
+  return date.toLocaleDateString('cs-CZ', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
 export function getDate2(date: Date): string{
   return date.toLocaleDateString('cs-CZ', {
     day: 'numeric',
